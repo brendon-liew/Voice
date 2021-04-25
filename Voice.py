@@ -17,7 +17,7 @@ from PyQt5.QtCore import QCoreApplication
 import speech_recognition as sr
 from mycroft_bus_client import MessageBusClient, Message
 import threading
-from Command import COMMAND as cmd
+#from Command import COMMAND as cmd
 from Motor import * 
 
 client = MessageBusClient()
