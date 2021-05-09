@@ -6,8 +6,14 @@ Install xrdp service which is an open source remote desktop protocol(xdrp) serve
 sudo apt-get install xrdp
 
 
+Install gunicorn
+pip install gunicorn
 
-
+Install flask
+pip install flask
 
 Install virtualenv
 sudo pip install virtualenv
+
+Install nginx
+sudo apt-get install nginx
