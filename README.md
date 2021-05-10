@@ -17,3 +17,6 @@ sudo pip install virtualenv
 
 Install nginx
 sudo apt-get install nginx
+
+Don't use 
+touch command
