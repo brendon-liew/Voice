@@ -12,7 +12,6 @@ from threading import Thread
 import sys
 import time
 from Motor import *
-from command import COMMAND as cmd
 import cv2
 import os
 from camera import Camera
@@ -75,7 +74,8 @@ def forward():
         time.sleep(3)
         PWM.setMotorModel(0,0,0,0)
         return redirect("/")
-    
+
+@app.route("/backward")    
 def backward():
 
         PWM.setMotorModel(-1500,-1500,-1500,-1500)
