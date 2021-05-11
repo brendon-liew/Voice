@@ -72,6 +72,9 @@ Created on Sun May  9 19:55:19 2021
             <h3 class="mt-5">Robot Car Control with Live Streaming, Butoon Control and Voice Control</h3>
             <img src="{{ url_for('video_feed') }}" >
 
+            <center>
+                <script src="{{ url_for('static',filename='assets/main.js')}}"></script>
+                        </center>
            <button type = "button" style="position:absolute; left:48%;" onclick="startConverting();"><i class="fa fa-microphone"></i></button>
                 <!-- click this button to stop converting-->
                 <button type = "button" style="position:absolute; left:51%;" onclick="stopConverting();"><i class="fa fa-remove"></i></button>
@@ -80,17 +83,15 @@ Created on Sun May  9 19:55:19 2021
             <header>
                 <navbar>
                         <ul>
-                                <li><a href="/forward">Forward</a></li>
-                                <li><a href="/backward">Backward</a></li>
-                                <li><a href="/left">Left</a></li>
-                                <li><a href="/right">Right</a></li>
-                                <li><a href="/stop">Stop</a></li>
+                                <li><a href="/forward"><img src="static/forward.png"></a></li>
+                                <li><a href="/backward"><img src="static/backward.png"></a></li>
+                                <li><a href="/left"><img src="static/left.png"></a></li>
+                                <li><a href="/right"><img src="static/right.png"></a></li>
+                                <li><a href="/stop"><img src="static/stop.png"></a></li>
                         </ul>
                 </navbar>
         </header>
-            <center>
-                <script src="{{ url_for('static',filename='assets/main.js')}}"></script>
-                        </center>
+            
         </div>
     </div>
 </div>
