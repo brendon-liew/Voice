@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May  9 19:48:47 2021
-
-@author: Brendon
-"""
 
 from flask import Flask, render_template, Response,request,redirect
 import io
@@ -18,7 +12,6 @@ from camera import Camera
 
 
 app = Flask(__name__)
-
 
 PWM = Motor()
 
@@ -37,7 +30,8 @@ def start_ngrok():
     # Get the dev server port (defaults to 5000 for Flask, can be overridden with `--port`
     # when starting the server
      port = sys.argv[sys.argv.index("--port") + 1] if "--port" in sys.argv else 5000
-     url = ngrok.connect(port).public_url
+     #url = ngrok.connect(port).public_url
+     url = ngrok.connect(bind_tls=True)
     # Update any base URLs or webhooks to use the public ngrok URL
      app.config["BASE_URL"] = url
      print(' * Tunnel URL:', url)
@@ -50,8 +44,8 @@ def index():
 
     return render_template('index.html')
 
+
 def gen(camera):
- """Video streaming generator function."""
     while True:
         frame = camera.get_frame()
         yield (b'--frame\r\n'
@@ -65,8 +59,7 @@ def video_feed():
 
 
 
-# endChar='\n'
-# intervalChar='#'
+
 @app.route("/forward")
 def forward():
 
@@ -74,8 +67,9 @@ def forward():
         time.sleep(3)
         PWM.setMotorModel(0,0,0,0)
         return redirect("/")
-
-@app.route("/backward")    
+ 
+ 
+@app.route("/backward")
 def backward():
 
         PWM.setMotorModel(-1500,-1500,-1500,-1500)
@@ -117,8 +111,8 @@ def stop():
 
 
 
-
+# 
 if __name__ == '__main__':
-    app.run(ssl_context=('cert.pem', 'key.pem'))
-    #app.run(start_ngrok())
+#     app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
     #app.run(host='0.0.0.0', port=8080, debug=True)
