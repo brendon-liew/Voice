@@ -1,143 +1,56 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May  9 19:55:19 2021
 
-@author: Brendon
-"""
 
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" />
-                <style type="text/css">
-                        body{
-                                font-family: verdana;
-                                 width: 100%;
-                                 background-image: url("bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-                        overflow-x: hidden;
-                        }
-                        .spinner{
-    width: 80px;
-    height: 80px;
-
-    border: 2px solid #f3f3f3;
-    border-top:3px solid #f25a41;
-    border-radius: 100%;
-
-    position: absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right: 0;
-    margin: auto;
-
-    animation: spin 1s infinite linear;
-}
-                        #result{
-                                height: 180px;
-                                background-color: white;
-                                box-shadow: 0 0 10px 0 #bbb;
-                                margin-bottom: 30px;
-                                font-size: 14px;
-                                line-height: 25px;
-                        }
-                        button-con {
-  position: relative;
-  border: 1px solid currentColor;
-  font-size: 1.1rem;
-  color: #4f93ce;
-  margin: 3rem 0;
-  padding: 0.75rem 3rem;
-  cursor: pointer;
-  -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
-  transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
-  overflow: hidden;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-                </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    
     <title>Live Streaming with Voice Engine and button control</title>
+
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-lg-8  offset-lg-2">
-            <h3 class="mt-5">Robot Car Control with Live Streaming, Butoon Control and Voice Control</h3>
-            <img src="{{ url_for('video_feed') }}" >
-
-            <center>
-                <script src="{{ url_for('static',filename='assets/main.js')}}"></script>
-                        </center>
-           <button type = "button" style="position:absolute; left:48%;" onclick="startConverting();"><i class="fa fa-microphone"></i></button>
-                <!-- click this button to stop converting-->
-                <button type = "button" style="position:absolute; left:51%;" onclick="stopConverting();"><i class="fa fa-remove"></i></button>
-            <p id="speechText">{{ value1 }}</p>
- <button>GPS</button>
-            <header>
-                <navbar>
-                        <ul>
-                                <li><a href="/forward"><img src="static/forward.png"></a></li>
-                                <li><a href="/backward"><img src="static/backward.png"></a></li>
-                                <li><a href="/left"><img src="static/left.png"></a></li>
-                                <li><a href="/right"><img src="static/right.png"></a></li>
-                                <li><a href="/stop"><img src="static/stop.png"></a></li>
-                        </ul>
-                </navbar>
-        </header>
+            <h3 class="mt-5">Robot Car Control with Live Streaming, Button Control and Voice Control</h3>
             
-        </div>
+	  <h3><img src="{{ url_for('video_feed') }}" width="70%"></h3>
+	
+	   <br>	
+		<div id="test">
+                	<script src="{{ url_for('static',filename='assets/main.js')}}"></script>
+			
+			<textarea id="note-textarea" style="color:blue"></textarea>
+			&nbsp
+			Accuracy of recognition<input type="text" id="ac">
+                </div>
+           	<br>
+                        <div style="text-align: center">	
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp
+				<a href="/forward"><img src="static/forward.png" style="width:100px;height:100px;"></a>
+				<a href="/stop"><img src="static/stop.png" style="width:100px;height:100px;"></a>
+				<br>
+				<a href="/left"><img src="static/left.png" style="width:100px;height:100px;"></a>
+                                <a href="/backward"><img src="static/backward.png" style="width:100px;height:100px;"></a>
+                                <a href="/right"><img src="static/right.png" style="width:100px;height:100px;"></a>
+                        </div>        
+						
+		       		<div>
+				<button>GPS</button>
+				<button>Battery Life</button>
+				</div>
+
+		
+		
+	</div>	
     </div>
 </div>
 </body>
 </html>
-<script type="text/javascript">
+<script>
 
-                var overlay = document.getElementById("overlay");
-                var r = document.getElementById('result1');
-                        var speechRecognizer = new webkitSpeechRecognition();// a new speech recognition object
-
-                        //function to start listening to voice and then convert it to text
-                        function startConverting () {
-                                if('webkitSpeechRecognition' in window){
-
-                                        speechRecognizer.continuous = true;
-                                        speechRecognizer.interimResults = true;
-                                        speechRecognizer.lang = 'en-IN';
-                                        speechRecognizer.start();
-                                        var finalTranscripts = '';
-                                        speechRecognizer.onresult = function(event){
-                                                var interimTranscripts = '';
-                                                for(var i = event.resultIndex; i < event.results.length; i++){
-                                                        var transcript = event.results[i][0].transcript;
-                                                        transcript.replace("\n", "<br>");
-                                                        if(event.results[i].isFinal){
-                                                                finalTranscripts += transcript;
-                                                        }else{
-                                                                interimTranscripts += transcript;
-                                                        }
-                                                }
-                                                r.value = finalTranscripts + interimTranscripts ;
-                                        };
-                                        speechRecognizer.onerror = function (event) {
-                                        };
-                                }else{
-                                        r.innerHTML = 'No browser support. Please upgrade your browser';
-                                }
-                        }
-                        //function to stop listening
-                        function stopConverting()
-                        {
-                                speechRecognizer.stop();
-                        }
-
-
-
-
-                </script>
+</script>
