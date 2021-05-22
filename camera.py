@@ -54,7 +54,7 @@ class Camera(object):
             # let camera warm up
             camera.start_preview()
             
-            stream = io.BytesIO()
+            stream = io.BytesIO()    #binary data
             for foo in camera.capture_continuous(stream, 'jpeg',
                                                  use_video_port=True):
                 # store frame
