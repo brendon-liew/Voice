@@ -35,7 +35,7 @@ class Camera(object):
                 time.sleep(0)
 
     def get_frame(self):
-        Camera.last_access = time.time()
+        Camera.last_access = time.time() #Get current time
         self.initialize()
         return self.frame
 
@@ -48,8 +48,8 @@ class Camera(object):
 
 
 
-            camera.hflip = False
-            camera.vflip = False
+            camera.hflip = False #horizontal flip
+            camera.vflip = False   #vertical flip
 
             # let camera warm up
             camera.start_preview()
