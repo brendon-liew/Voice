@@ -35,7 +35,7 @@ class Camera(object):
                 time.sleep(0)
 
     def get_frame(self):
-        Camera.last_access = time.time() #Get current time
+        Camera.last_access = time.time()
         self.initialize()
         return self.frame
 
@@ -48,13 +48,13 @@ class Camera(object):
 
 
 
-            camera.hflip = False #horizontal flip
-            camera.vflip = False   #vertical flip
+            camera.hflip = False
+            camera.vflip = False
 
             # let camera warm up
             camera.start_preview()
             
-            stream = io.BytesIO()    #binary data
+            stream = io.BytesIO()
             for foo in camera.capture_continuous(stream, 'jpeg',
                                                  use_video_port=True):
                 # store frame
@@ -70,3 +70,4 @@ class Camera(object):
                 if time.time() - cls.last_access > 10:
                     break
         cls.thread = None
+
