@@ -190,6 +190,7 @@ var btn2 = document.createElement('button');
 
 btn2.innerText = "Stop Speak";
 
+btn2.style.marginLeft="10px";
 
 btn.onclick = ()=> {
 
