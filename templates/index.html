@@ -1,13 +1,11 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/main.css') }}" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    
     <title>Live Streaming with Voice Engine and button control</title>
 
 </head>
@@ -17,36 +15,43 @@
         <div class="col-lg-8  offset-lg-2">
             <h3 class="mt-5">Robot Car Control with Live Streaming, Button Control and Voice Control</h3>
             
-	  <h3><img src="{{ url_for('video_feed') }}" width="70%"></h3>
+	  <h3><img src="{{ url_for('video_feed') }}" class="mg-thumbnail"></h3>
 	
 	   <br>	
 		<div id="test">
-                	<script src="{{ url_for('static',filename='assets/main.js')}}"></script>
-			<textarea id="resultVoice"></textarea>
-			&nbsp
-			Accuracy of recognition &nbsp<input type="text" id="ac">
+		
+                 <script src="{{ url_for('static',filename='assets/main.js')}}"></script>
+
+			<br>
+	        <div class="btn-toolbar mb-3" role="toolbar">
+		 <div class="btn-group mr-2" role="group">
+		  <div class="input-group-text">Word recognition</div>	
+			<textarea id="resultVoice" disabled></textarea>
+		 </div>	
+			<div class="btn-group mr-3">
+				<div class="input-group-text">Accuracy of recognition</div> 
+				<input type="text"  id="ac" disabled>
+				
+			</div>
                 </div>
+		</div>
            	<br>
-                        <div style="text-align: center">	
-                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				&nbsp
-				<div class="btn-group mr-2" role="group">
-				<a href="/forward"><img src="static/forward.png" style="width:100px;height:100px;"></a>
-				<a href="/stop"><img src="static/stop.png" style="width:100px;height:100px;"></a>
-				</div>
-				<div class="btn-group" role="group"
-				<a href="/left"><img src="static/left.png" style="width:100px;height:100px;"></a>
-                                <a href="/backward"><img src="static/backward.png" style="width:100px;height:100px;"></a>
-                                <a href="/right"><img src="static/right.png" style="width:100px;height:100px;"></a>
-	    			</div>
+                       <div class="text-center">
+            		
+				<a href="/forward"><img src="static/forward.png" id="try1"></a>
+				
+				<a href="/stop"><img src="static/stop.png" id="try"></a>
+				<br>
+				<a href="/left"><img src="static/left.png" id="try"></a>
+                                <a href="/backward"><img src="static/backward.png" id="try"></a>
+                                <a href="/right"><img  src="static/right.png" id="try"></a>
+	    		
                         </div>        
 						
 		       		<div>
 				<button>GPS</button>
 				<button>Battery Life</button>
 				</div>
-
-		
 		
 	</div>	
     </div>
