@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat May  1 18:20:00 2021
 
-@author: Brendon
-"""
 
 import time
 from PCA9685 import PCA9685
