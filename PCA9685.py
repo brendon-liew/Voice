@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat May  1 18:19:35 2021
 
-@author: Brendon
-"""
 
 #!/usr/bin/python
 
