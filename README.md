@@ -41,6 +41,8 @@ chrome://flags/#unsafely-treat-insecure-origin-as-secure
 
 The website will allow to use voice engine and access your microphone
 
+**Noted:** Check whether the browser or operating system version is able to support or not support the system.
+https://caniuse.com/speech-recognition
 
 ## Structure of the system
 ![Process ](https://user-images.githubusercontent.com/60971135/125146791-ad243880-e11f-11eb-81dc-98247421fb13.png)
