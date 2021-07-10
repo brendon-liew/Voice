@@ -49,8 +49,8 @@ The website will allow to use voice engine and access your microphone
 ![Design](https://user-images.githubusercontent.com/60971135/125146807-c4fbbc80-e11f-11eb-8c62-626f2ec3e574.PNG)
 
 ## Mobile Overview
-Iphone
+# Iphone
 ![iphone](https://user-images.githubusercontent.com/60971135/125146797-b6150a00-e11f-11eb-859b-746dfa2fc1e6.jpg)
 
-Xiao Mi
+# Xiao Mi
 ![xiao mi](https://user-images.githubusercontent.com/60971135/125146800-ba412780-e11f-11eb-97c2-6c80e4774090.jpg)
