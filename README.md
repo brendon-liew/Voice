@@ -1,5 +1,13 @@
 # Robot Car Control with Live Streaming, Button Control and Voice Control
 
+Using web browser to control robotics car using web speech API and button.
+<br/>
+Chat bot had been used to sent respond to the system and the confidence of the work spoken are shown to the corresponding textbox.
+
+FreeNove 4WD Smart Car Kit with raspberry pi and raspberry Pi 4 had been used. 
+
+
+
 **Noted:** Check whether the browser or operating system version is able to support or not support the system.
 https://caniuse.com/speech-recognition
 
